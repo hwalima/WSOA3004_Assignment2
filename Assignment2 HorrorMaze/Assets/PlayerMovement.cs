@@ -13,11 +13,15 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight=3f;
+
+   public bool isCrouching;
+    LookAround lookAround;
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         groundCheck = GameObject.FindGameObjectWithTag("groundCheck").transform;
+        lookAround = FindObjectOfType<LookAround>();
     }
 
     // Update is called once per frame
@@ -25,22 +29,46 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (!isCrouching)
         {
-            velocity.y = -2f;
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+
+            Vector3 move = transform.right * x + transform.forward * z;
+            characterController.Move(move * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+            characterController.Move(velocity * Time.deltaTime);
         }
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
 
-        Vector3 move=transform.right*x+transform.forward*z;
-        characterController.Move(move*speed*Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetMouseButton(0))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            lookAround.IsCrouchingCamMovement();
+            isCrouching = true;
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            lookAround.IsNotCrouchingAnymore();
+            isCrouching = false;
+        }
+    }
 
-        velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //GameOver
+            
+        }
     }
 }

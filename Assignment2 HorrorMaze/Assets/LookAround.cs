@@ -7,12 +7,14 @@ public class LookAround : MonoBehaviour
     float mousSensitivity = 100f;
     Transform playerBody;
     float xrotation = 0f;
+    float startyPos;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         playerBody = GameObject.FindGameObjectWithTag("Player").transform;
         //hides cursor from player;
+        startyPos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -25,5 +27,13 @@ public class LookAround : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xrotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
+    }
+   public void IsCrouchingCamMovement()
+    {
+        transform.position = new Vector3(transform.position.x, startyPos/2f, transform.position.y);
+    }
+   public void IsNotCrouchingAnymore()
+    {
+        transform.position = new Vector3(transform.position.x,startyPos, transform.position.y);
     }
 }
