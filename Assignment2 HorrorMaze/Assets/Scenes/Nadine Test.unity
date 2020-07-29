@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.54
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -31,7 +31,7 @@ RenderSettings:
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  m_SpotCookie: {fileID: 2800000, guid: 8bc6531306d56434086842fb7f64b026, type: 3}
+  m_SpotCookie: {fileID: 2800000, guid: 4df6713ac6d3383439849b7d78f1d6d5, type: 3}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
@@ -3238,13 +3238,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432107338}
-  m_LocalRotation: {x: 0.10157721, y: 0, z: 0, w: 0.9948277}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalRotation: {x: 0.019586956, y: -0, z: -0, w: 0.99980813}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6806436609418724193}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 11.66, y: 0, z: 0}
+  m_Father: {fileID: 6806436608586421244}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.2450001, y: 0, z: 0}
 --- !u!108 &432107340
 Light:
   m_ObjectHideFlags: 0
@@ -3257,9 +3257,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 7.39
-  m_Range: 66.7
-  m_SpotAngle: 93.577225
+  m_Intensity: 14.4
+  m_Range: 20.7
+  m_SpotAngle: 87
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -3299,7 +3299,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 4.68
+  m_BounceIntensity: 13.86
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -18100,7 +18100,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 432107339}
   m_Father: {fileID: 6806436609418724193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18178,7 +18179,6 @@ Transform:
   - {fileID: 6806436608478345312}
   - {fileID: 6806436608586421244}
   - {fileID: 6806436608648589617}
-  - {fileID: 432107339}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
