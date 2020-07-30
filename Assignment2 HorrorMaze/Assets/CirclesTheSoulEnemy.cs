@@ -40,8 +40,10 @@ public class CirclesTheSoulEnemy : MonoBehaviour
         for (var i = noOfSoulsInScene.Count - 1; i > -1; i--)
         {
             if (noOfSoulsInScene[i] == null)
+            {
                 noOfSoulsInScene.RemoveAt(i);
-            rand = Random.Range(0, noOfSoulsInScene.Count);
+                rand = Random.Range(0, noOfSoulsInScene.Count);
+            }
         }
 
 
@@ -75,6 +77,9 @@ public class CirclesTheSoulEnemy : MonoBehaviour
         {
 
             isCHasingPlayer = false;
+          // rand = Random.Range(0, noOfSoulsInScene.Count);
+            navMeshAgent.SetDestination(noOfSoulsInScene[rand].transform.position);
+            navMeshAgent.stoppingDistance = collectableSoulStoppingDIstance;
         }
 
 
@@ -84,7 +89,7 @@ public class CirclesTheSoulEnemy : MonoBehaviour
         {
             transform.RotateAround(noOfSoulsInScene[rand].transform.position, Vector3.up, 30 * Time.deltaTime);
         }
-        if (navMeshAgent.destination == null)
+        if (navMeshAgent.transform.position == navMeshAgent.destination)
         {
             rand = Random.Range(0, noOfSoulsInScene.Count);
             navMeshAgent.SetDestination(noOfSoulsInScene[rand].transform.position);

@@ -42,8 +42,10 @@ public class SpinningHeadDoll : MonoBehaviour
         for (var i = noOfSoulsInScene.Count - 1; i > -1; i--)
         {
             if (noOfSoulsInScene[i] == null)
+            {
                 noOfSoulsInScene.RemoveAt(i);
-            rand = Random.Range(0, noOfSoulsInScene.Count);
+                rand = Random.Range(0, noOfSoulsInScene.Count);
+            }
         }
 
         if (Vector3.Distance(player.position, transform.position) < radiusOfAwareness)
@@ -80,7 +82,8 @@ public class SpinningHeadDoll : MonoBehaviour
         else if (Vector3.Distance(player.position, transform.position) > chaseRadius)
         {
             isCHasingPlayer = false;
-
+            navMeshAgent.SetDestination(noOfSoulsInScene[rand].transform.position);
+            navMeshAgent.stoppingDistance = collectableSoulStoppingDIstance;
 
 
             if (Vector3.Distance(noOfSoulsInScene[rand].transform.position, transform.position) <= collectableSoulStoppingDIstance)

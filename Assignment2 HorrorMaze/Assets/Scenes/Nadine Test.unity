@@ -5209,6 +5209,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7207092916794953997, guid: c232e2e83d73d5f468d77791c5013bd9,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207092916794953997, guid: c232e2e83d73d5f468d77791c5013bd9,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 7000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207092916794953997, guid: c232e2e83d73d5f468d77791c5013bd9,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207092916794953997, guid: c232e2e83d73d5f468d77791c5013bd9,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6039216
+      objectReference: {fileID: 0}
     - target: {fileID: 7207092917778168052, guid: c232e2e83d73d5f468d77791c5013bd9,
         type: 3}
       propertyPath: m_Name
@@ -5217,17 +5237,17 @@ PrefabInstance:
     - target: {fileID: 7207092917778168059, guid: c232e2e83d73d5f468d77791c5013bd9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7207092917778168059, guid: c232e2e83d73d5f468d77791c5013bd9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2936249
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7207092917778168059, guid: c232e2e83d73d5f468d77791c5013bd9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 7207092917778168059, guid: c232e2e83d73d5f468d77791c5013bd9,
         type: 3}
@@ -9665,7 +9685,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -11348,7 +11368,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
