@@ -4719,11 +4719,12 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcfa54611eaa6c44ca4c186dde0f23bf, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 4014b61b8f0725f4f9b5c54741f5fee0, type: 2}
+  - {fileID: 2100000, guid: 4014b61b8f0725f4f9b5c54741f5fee0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4971,7 +4972,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.735849, g: 0.19374391, b: 0.03818085, a: 1}
+      maxColor: {r: 0.1981132, g: 0.19300498, b: 0.19157173, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.5803922, g: 0.49411765, b: 0, a: 1}
@@ -9427,6 +9428,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
