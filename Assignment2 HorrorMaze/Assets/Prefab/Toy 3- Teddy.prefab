@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3480256153337404988}
   - component: {fileID: 5310037637486504098}
   - component: {fileID: 4374973203979318397}
+  - component: {fileID: 4516973513566836266}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -79,6 +80,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4516973513566836266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593110567624462550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d982cae4abca50143a63e3405875e0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1114127121611382755
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +103,7 @@ GameObject:
   - component: {fileID: 305677539621602649}
   m_Layer: 0
   m_Name: Toy 3- Teddy
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

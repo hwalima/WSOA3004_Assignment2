@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public int noOfSoulsToCOllect = 5;
     public int totalCOllected = 0;
-    public GameObject collectableSoulThing;
+    public GameObject []collectableSoulThing;
 
     public GameObject youWonPanel;
     public GameObject youLosepanel;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
 
     public List<Vector3> possibleOrbSpawnPoints = new List<Vector3>();
+    PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (totalCOllected == noOfSoulsToCOllect)
+        if (totalCOllected == noOfSoulsToCOllect && playerMovement.isTouchingTombstone)
         {
             youWonPanel.SetActive(true);
         }
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < noOfSoulsToCOllect; i++)
         {
             int choosePossibleSpawnPoint = Random.Range(0, possibleOrbSpawnPoints.Count);
-            Instantiate(collectableSoulThing, possibleOrbSpawnPoints[choosePossibleSpawnPoint], Quaternion.identity);
+            Instantiate(collectableSoulThing[i], possibleOrbSpawnPoints[choosePossibleSpawnPoint], Quaternion.identity);
             possibleOrbSpawnPoints.Remove(possibleOrbSpawnPoints[choosePossibleSpawnPoint]);
         }
     }

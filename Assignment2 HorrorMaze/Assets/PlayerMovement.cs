@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     Actions actionsscr;
     GameManager gameManager;
 
-
+   public  bool isTouchingTombstone;
     #region Homolang and his sound scripts
     public bool walking=false;
     public bool jumping=false;
@@ -156,6 +156,14 @@ public class PlayerMovement : MonoBehaviour
         {
 
             gameManager.GameOver();
+        }
+        if (hit.gameObject.tag == "Tombstone")
+        {
+            isTouchingTombstone = true;
+        }
+        else
+        {
+            isTouchingTombstone = false;
         }
     }
     
