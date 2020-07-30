@@ -22,7 +22,14 @@ public class PlayerMovement : MonoBehaviour
     public float maxTorchTime = 60;
     float remainingTorchTime;
 
+    Actions actionsscr;
+    GameManager gameManager;
 
+
+    #region Homolang and his sound scripts
+    public bool walking=false;
+    public bool jumping=false;
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         groundCheck = GameObject.FindGameObjectWithTag("groundCheck").transform;
         lookAround = FindObjectOfType<LookAround>();
         remainingTorchTime = maxTorchTime;
+        actionsscr = FindObjectOfType<Actions>();
+        gameManager = FindObjectOfType<GameManager>();
 
     }
 
@@ -52,9 +61,19 @@ public class PlayerMovement : MonoBehaviour
             Vector3 move = transform.right * x + transform.forward * z;
             characterController.Move(move * speed * Time.deltaTime);
 
+            if(velocity.x>0.2f || velocity.z > 0.2f)
+            {
+                walking = true;
+            }
+            else
+            {
+                walking = false;
+            }
+
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                StartCoroutine(JumpSound());
             }
 
             velocity.y += gravity * Time.deltaTime;
@@ -123,4 +142,21 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         torchObj.SetActive(true);
     }
+
+    IEnumerator JumpSound()
+    {
+        jumping = true;
+        yield return new WaitForSeconds(0.5f);
+        jumping = false;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Enemy")
+        {
+
+            gameManager.GameOver();
+        }
+    }
+    
 }

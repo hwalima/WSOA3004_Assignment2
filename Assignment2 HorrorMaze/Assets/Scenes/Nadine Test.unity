@@ -1046,12 +1046,6 @@ CapsuleCollider:
   m_Height: 0.18
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.0812617}
---- !u!1 &240839379 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1084725803157214408, guid: 2b51c745887632f45bd7911cad53944a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1084725802919542299}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &249985367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 360a10ec2fe4a6f4fbbf09b0915fc646,
@@ -3592,10 +3586,10 @@ MonoBehaviour:
   collectableSoulThing: {fileID: 2651183447185908235, guid: eb3af36b7f3e38a49b41251cf87c3b3f,
     type: 3}
   youWonPanel: {fileID: 410068166}
-  youLosepanel: {fileID: 240839379}
+  youLosepanel: {fileID: 1590022972}
   noOfSpiderThingEnemies: 6
   noOfRotatingHeadEnemies: 6
-  spiderThingEnemies: {fileID: 7262641057737318373, guid: c6a289bbbf9be2643be7d5c76fdf9da9,
+  spiderThingEnemies: {fileID: 5742564541315174167, guid: 49e9f6e781439d342b47cc45943db720,
     type: 3}
   spinningHeadEnemies: {fileID: 1084725803157214408, guid: 2b51c745887632f45bd7911cad53944a,
     type: 3}
@@ -13307,7 +13301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8980392}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -17892,6 +17886,8 @@ GameObject:
   - component: {fileID: 6806436608586421242}
   - component: {fileID: 6806436608586421245}
   - component: {fileID: 6806436608586421246}
+  - component: {fileID: 6806436608586421248}
+  - component: {fileID: 6806436608586421247}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18037,6 +18033,37 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &6806436608586421247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806436608586421241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30229347f7fe91342b9cb3d99816dad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backdropAudio: {fileID: 0}
+  dangerComingAudio: {fileID: 0}
+  cricketsAudio: {fileID: 0}
+--- !u!114 &6806436608586421248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806436608586421241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633aa9de2279a874b8184a8388f159b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingAudio: {fileID: 0}
+  jumpingAudio: {fileID: 0}
+  tba1Audio: {fileID: 0}
+  tba2Audio: {fileID: 0}
 --- !u!1 &6806436608648589616
 GameObject:
   m_ObjectHideFlags: 0
@@ -18124,6 +18151,8 @@ MonoBehaviour:
   isCrouching: 0
   torchObj: {fileID: 432107338}
   maxTorchTime: 60
+  walking: 0
+  jumping: 0
 --- !u!1 &6806436609418724207
 GameObject:
   m_ObjectHideFlags: 0
