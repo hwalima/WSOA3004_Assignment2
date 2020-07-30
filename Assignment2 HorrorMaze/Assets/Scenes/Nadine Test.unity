@@ -2461,7 +2461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &410068167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3599,6 +3599,15 @@ MonoBehaviour:
     type: 3}
   spinningHeadEnemies: {fileID: 1084725803157214408, guid: 2b51c745887632f45bd7911cad53944a,
     type: 3}
+  orbsRemainingText: {fileID: 1413497244}
+  possibleOrbSpawnPoints:
+  - {x: 95, y: 1, z: 93}
+  - {x: 110, y: 1, z: 46}
+  - {x: 20, y: 1, z: 36}
+  - {x: 20, y: 1, z: 95}
+  - {x: 51, y: 1, z: 82}
+  - {x: 51, y: 1, z: 48}
+  - {x: 88, y: 1, z: 48}
 --- !u!4 &522710955
 Transform:
   m_ObjectHideFlags: 0
@@ -11453,6 +11462,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 810921340}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1413497242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413497243}
+  - component: {fileID: 1413497245}
+  - component: {fileID: 1413497244}
+  m_Layer: 5
+  m_Name: Orbs Remaining Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1413497243
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413497242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1866974139}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -80.51, y: -40.94}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1413497244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413497242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1413497245
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413497242}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1414075325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14623,6 +14710,7 @@ RectTransform:
   - {fileID: 410068167}
   - {fileID: 849344695}
   - {fileID: 1590022973}
+  - {fileID: 1413497243}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17916,8 +18004,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6806436609418724207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 1, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 25, y: 2.44, z: 3}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 6806436608478345312}
   - {fileID: 6806436608586421244}
@@ -17945,6 +18033,8 @@ MonoBehaviour:
     m_Bits: 256
   jumpHeight: 3
   isCrouching: 0
+  torchObj: {fileID: 432107338}
+  maxTorchTime: 60
 --- !u!1 &6806436609418724207
 GameObject:
   m_ObjectHideFlags: 0

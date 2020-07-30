@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusOfAwareness: 7
   headObj: {fileID: 1084725802290683705}
-  chaseRadius: 5
+  chaseRadius: 9
 --- !u!195 &1084725803157214402
 NavMeshAgent:
   m_ObjectHideFlags: 0

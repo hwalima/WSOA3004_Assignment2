@@ -16,7 +16,7 @@ public class Collectables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,9 +24,10 @@ public class Collectables : MonoBehaviour
         if (other.gameObject == player)
         {
             gameManager.totalCOllected++;
+            gameManager.ActivateShowOrbsText();
             Destroy(gameObject);
         }
     }
-    
-         
+
+
 }

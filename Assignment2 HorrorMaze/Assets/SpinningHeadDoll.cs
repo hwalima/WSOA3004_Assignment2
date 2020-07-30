@@ -8,7 +8,7 @@ public class SpinningHeadDoll : MonoBehaviour
     Transform player;
     PlayerMovement playerMovement;
 
-    public float radiusOfAwareness=4f;
+    public float radiusOfAwareness = 4f;
     public Transform headObj;
 
     public float chaseRadius = 3f;
@@ -31,7 +31,7 @@ public class SpinningHeadDoll : MonoBehaviour
             noOfSoulsInScene.Add(aSoulToCircleROund);
         }
 
-         rand = Random.Range(0, noOfSoulsInScene.Count);
+        rand = Random.Range(0, noOfSoulsInScene.Count);
         navMeshAgent.SetDestination(noOfSoulsInScene[rand].transform.position);
         navMeshAgent.stoppingDistance = collectableSoulStoppingDIstance;
     }
@@ -39,17 +39,24 @@ public class SpinningHeadDoll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for (var i = noOfSoulsInScene.Count - 1; i > -1; i--)
+        {
+            if (noOfSoulsInScene[i] == null)
+                noOfSoulsInScene.RemoveAt(i);
+            rand = Random.Range(0, noOfSoulsInScene.Count);
+        }
+
         if (Vector3.Distance(player.position, transform.position) < radiusOfAwareness)
         {
-           headObj.transform.LookAt(player);
+            headObj.transform.LookAt(player);
         }
         else
         {
-           headObj. transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 180, player.transform.position.z));
+            headObj.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 180, player.transform.position.z));
         }
 
-       if (Vector3.Distance(player.position, transform.position) < chaseRadius)
-       {
+        if (Vector3.Distance(player.position, transform.position) < chaseRadius)
+        {
             if (isCHasingPlayer == false)
             {
                 //check if you're already chasing the player
@@ -57,27 +64,38 @@ public class SpinningHeadDoll : MonoBehaviour
                 {
                     //chaseThePlayer
                     isCHasingPlayer = true;
-                    navMeshAgent.SetDestination(player.transform.position);
+
                 }
-                else if(playerMovement.isCrouching)
+                else if (playerMovement.isCrouching)
                 {
                     //continueOnWith Movement
                 }
             }
-       }
+
+            if (isCHasingPlayer)
+            {
+                navMeshAgent.SetDestination(player.transform.position);
+            }
+        }
         else if (Vector3.Distance(player.position, transform.position) > chaseRadius)
         {
             isCHasingPlayer = false;
 
-      
 
-            if(Vector3.Distance(noOfSoulsInScene[rand].transform.position, transform.position) <= collectableSoulStoppingDIstance)
+
+            if (Vector3.Distance(noOfSoulsInScene[rand].transform.position, transform.position) <= collectableSoulStoppingDIstance)
             {
                 rand = Random.Range(0, noOfSoulsInScene.Count);
                 navMeshAgent.SetDestination(noOfSoulsInScene[rand].transform.position);
                 navMeshAgent.stoppingDistance = collectableSoulStoppingDIstance;
             }
-           
+
+        }
+        if (navMeshAgent.destination == null)
+        {
+            rand = Random.Range(0, noOfSoulsInScene.Count);
+            navMeshAgent.SetDestination(noOfSoulsInScene[rand].transform.position);
+            navMeshAgent.stoppingDistance = collectableSoulStoppingDIstance;
         }
     }
 }

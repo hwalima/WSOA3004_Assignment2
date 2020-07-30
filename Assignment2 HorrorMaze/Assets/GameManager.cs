@@ -2,21 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int noOfSoulsToCOllect=5;
+    public int noOfSoulsToCOllect = 5;
     public int totalCOllected = 0;
     public GameObject collectableSoulThing;
 
-   public GameObject youWonPanel;
+    public GameObject youWonPanel;
     public GameObject youLosepanel;
-   public int noOfSpiderThingEnemies=6;
-    public int noOfRotatingHeadEnemies=6;
+    public int noOfSpiderThingEnemies = 6;
+    public int noOfRotatingHeadEnemies = 6;
 
     public GameObject spiderThingEnemies;
     public GameObject spinningHeadEnemies;
 
+
+    public Text orbsRemainingText;
+
+
+    public List<Vector3> possibleOrbSpawnPoints = new List<Vector3>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,7 +30,10 @@ public class GameManager : MonoBehaviour
         SpawnSpiderthings();
         SpawnSpinningHeadEnemies();
     }
-
+    private void Start()
+    {
+        StartCoroutine(ShowHowManyOrbsLeft());
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,15 +41,17 @@ public class GameManager : MonoBehaviour
         {
             youWonPanel.SetActive(true);
         }
+
     }
 
     void SpawnCollectableSouls()
     {
+
         for (int i = 0; i < noOfSoulsToCOllect; i++)
         {
-            float randomx = Random.Range(1, 100);
-            float randomz = Random.Range(-0,110);
-            Instantiate(collectableSoulThing, new Vector3(randomx, 2, randomz), Quaternion.identity);
+            int choosePossibleSpawnPoint = Random.Range(0, possibleOrbSpawnPoints.Count);
+            Instantiate(collectableSoulThing, possibleOrbSpawnPoints[choosePossibleSpawnPoint], Quaternion.identity);
+            possibleOrbSpawnPoints.Remove(possibleOrbSpawnPoints[choosePossibleSpawnPoint]);
         }
     }
     void SpawnSpiderthings()
@@ -65,5 +76,18 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         youLosepanel.SetActive(true);
+    }
+
+    public void ActivateShowOrbsText()
+    {
+        StartCoroutine(ShowHowManyOrbsLeft());
+    }
+
+    IEnumerator ShowHowManyOrbsLeft()
+    {
+        orbsRemainingText.gameObject.SetActive(true);
+        orbsRemainingText.text = totalCOllected + "/" + noOfSoulsToCOllect.ToString();
+        yield return new WaitForSeconds(6f);
+        orbsRemainingText.gameObject.SetActive(false);
     }
 }

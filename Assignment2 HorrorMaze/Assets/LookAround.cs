@@ -20,20 +20,26 @@ public class LookAround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region Look Around The Scene
         float mouseX = Input.GetAxis("Mouse X") * mousSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mousSensitivity * Time.deltaTime;
         xrotation -= mouseY;
         xrotation = Mathf.Clamp(xrotation, -90, 90);
         transform.localRotation = Quaternion.Euler(xrotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+        #endregion
 
     }
-   public void IsCrouchingCamMovement()
+
+    #region Crouch stuff
+    public void IsCrouchingCamMovement()
     {
-        transform.position = new Vector3(transform.position.x, startyPos/2f, transform.position.y);
+
+        transform.position = new Vector3(transform.position.x, startyPos / 2f, transform.position.z);
     }
-   public void IsNotCrouchingAnymore()
+    public void IsNotCrouchingAnymore()
     {
-        transform.position = new Vector3(transform.position.x,startyPos, transform.position.y);
+        transform.position = new Vector3(transform.position.x, startyPos, transform.position.z);
     }
+    #endregion
 }
