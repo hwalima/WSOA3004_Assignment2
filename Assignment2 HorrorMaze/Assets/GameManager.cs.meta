@@ -3,7 +3,14 @@ guid: b5fb7f41af4514f439c863c9dab8ec94
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - youWonPanel: {instanceID: 0}
+  - youLosepanel: {instanceID: 0}
+  - spiderThingEnemies: {instanceID: 0}
+  - spinningHeadEnemies: {instanceID: 0}
+  - orbsRemainingText: {instanceID: 0}
+  - win: {instanceID: 0}
+  - lose: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

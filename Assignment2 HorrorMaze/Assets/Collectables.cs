@@ -6,6 +6,7 @@ public class Collectables : MonoBehaviour
 {
     GameManager gameManager;
     GameObject player;
+    public AudioSource pickup;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Collectables : MonoBehaviour
             gameManager.totalCOllected++;
             //gameManager.ActivateShowOrbsText();
             Destroy(transform.parent.gameObject);
+            pickup.Play();
         }
     }
 

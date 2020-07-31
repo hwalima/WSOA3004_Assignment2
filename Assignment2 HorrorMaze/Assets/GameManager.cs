@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     public Text orbsRemainingText;
 
+    public AudioSource win;
+    public AudioSource lose;
+
 
     public List<Vector3> possibleOrbSpawnPoints = new List<Vector3>();
     PlayerMovement playerMovement;
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
             {
                 youWonPanel.SetActive(true);
                 theGameIsOver = true;
+                win.Play();
             }
         }
         orbsRemainingText.text = totalCOllected + "/" + noOfSoulsToCOllect.ToString();
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         youLosepanel.SetActive(true);
+        lose.Play();
         theGameIsOver = true;
     }
 
