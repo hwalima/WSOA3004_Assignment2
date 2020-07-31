@@ -54,7 +54,7 @@ public class SpinningHeadDoll : MonoBehaviour
         }
         else
         {
-            headObj.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 180, player.transform.position.z));
+         //   headObj.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 180, player.transform.position.z));
         }
 
         if (Vector3.Distance(player.position, transform.position) < chaseRadius)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,11 +22,13 @@ public class PlayerMovement : MonoBehaviour
     bool toggleTorch = false;
     public float maxTorchTime = 60;
     float remainingTorchTime;
+    public Slider torchSlider;
 
     Actions actionsscr;
     GameManager gameManager;
 
    public  bool isTouchingTombstone;
+
     #region Homolang and his sound scripts
     public bool walking=false;
     public bool jumping=false;
@@ -39,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         remainingTorchTime = maxTorchTime;
         actionsscr = FindObjectOfType<Actions>();
         gameManager = FindObjectOfType<GameManager>();
+        torchSlider.maxValue = maxTorchTime;
+        torchSlider.value = maxTorchTime;
 
     }
 
@@ -110,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
             //if torch =5seconds left flicker
             //switch torch off
             remainingTorchTime -= Time.deltaTime;
+            torchSlider.value = remainingTorchTime;
 
             if (remainingTorchTime <= 1.5 && remainingTorchTime > 0.3)
             {
