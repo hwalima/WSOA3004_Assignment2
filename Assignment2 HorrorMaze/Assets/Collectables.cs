@@ -24,8 +24,8 @@ public class Collectables : MonoBehaviour
         if (other.gameObject == player)
         {
             gameManager.totalCOllected++;
-            gameManager.ActivateShowOrbsText();
-            Destroy(gameObject);
+            //gameManager.ActivateShowOrbsText();
+            Destroy(transform.parent.gameObject);
         }
     }
 

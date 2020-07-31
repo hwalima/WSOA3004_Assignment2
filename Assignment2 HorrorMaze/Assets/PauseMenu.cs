@@ -9,10 +9,12 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pausedUI;
     private bool paused = false;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         pausedUI.SetActive(false);
+        gameManager = FindObjectOfType<GameManager>();
 
     }
 
@@ -25,11 +27,12 @@ public class PauseMenu : MonoBehaviour
         }
 
         #region cursorControl
-        if (paused)
+        if (paused || gameManager.theGameIsOver==true)
         {
             Cursor.lockState = CursorLockMode.None;
         }
-        else {
+        else if(!paused&& gameManager.theGameIsOver==false)
+        {
             Cursor.lockState = CursorLockMode.Locked;
         }
         #endregion

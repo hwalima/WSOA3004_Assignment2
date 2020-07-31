@@ -125,6 +125,10 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
+        if (gameManager.theGameIsOver)
+        {
+            this.enabled = false;
+        }
     }
 
 

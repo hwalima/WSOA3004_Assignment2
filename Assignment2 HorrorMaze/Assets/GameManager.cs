@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int noOfSoulsToCOllect = 5;
+    public int noOfSoulsToCOllect = 3;
     public int totalCOllected = 0;
     public GameObject []collectableSoulThing;
 
@@ -30,19 +30,27 @@ public class GameManager : MonoBehaviour
         SpawnCollectableSouls();
         SpawnSpiderthings();
         SpawnSpinningHeadEnemies();
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
+
+    public bool theGameIsOver=false;
     private void Start()
     {
-        StartCoroutine(ShowHowManyOrbsLeft());
+        // StartCoroutine(ShowHowManyOrbsLeft());
+        theGameIsOver = false;
     }
     // Update is called once per frame
     void Update()
     {
-        if (totalCOllected == noOfSoulsToCOllect && playerMovement.isTouchingTombstone)
+        if (totalCOllected == noOfSoulsToCOllect )
         {
-            youWonPanel.SetActive(true);
+            if (playerMovement.isTouchingTombstone == true)
+            {
+                youWonPanel.SetActive(true);
+                theGameIsOver = true;
+            }
         }
-
+        orbsRemainingText.text = totalCOllected + "/" + noOfSoulsToCOllect.ToString();
     }
 
     void SpawnCollectableSouls()
@@ -59,8 +67,8 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < noOfSpiderThingEnemies; i++)
         {
-            float randomx = Random.Range(1, 100);
-            float randomz = Random.Range(-0, 110);
+            float randomx = Random.Range(25, 100);
+            float randomz = Random.Range(20, 110);
             Instantiate(spiderThingEnemies, new Vector3(randomx, 2, randomz), Quaternion.identity);
         }
     }
@@ -70,18 +78,19 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < noOfSpiderThingEnemies; i++)
         {
             float randomx = Random.Range(1, 100);
-            float randomz = Random.Range(-0, 110);
+            float randomz = Random.Range(20, 110);
             Instantiate(spinningHeadEnemies, new Vector3(randomx, 2, randomz), Quaternion.identity);
         }
     }
     public void GameOver()
     {
         youLosepanel.SetActive(true);
+        theGameIsOver = true;
     }
 
     public void ActivateShowOrbsText()
     {
-        StartCoroutine(ShowHowManyOrbsLeft());
+       // StartCoroutine(ShowHowManyOrbsLeft());
     }
 
     IEnumerator ShowHowManyOrbsLeft()
